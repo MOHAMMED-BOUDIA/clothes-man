@@ -64,8 +64,8 @@ const formatPrice = (price) => {
 const generateProducts = () => {
     return [
         // --- T-SHIRTS (8) ---
-        { id: 101, name: "Midnight Silk Tee", category: "t-shirts", price: 599, image: "./assets/images/1M.jpg", description: "Premium silk blend tee.", sizes: ["S", "M", "L", "XL"], stock: 15 },
-        { id: 102, name: "Signature Polo", category: "t-shirts", price: 499, image: "./assets/images/2Si.jpg", description: "Classic piqué polo with gold accent.", sizes: ["S", "M", "L"], stock: 25 },
+        { id: 101, name: "Midnight Silk Tee", category: "t-shirts", price: 599, image: "./assets/images/nam.jpg", description: "Premium silk blend tee.", sizes: ["S", "M", "L", "XL"], stock: 15 },
+        { id: 102, name: "Signature Polo", category: "t-shirts", price: 499, image: "./assets/images/sam.jpg", description: "Classic piqué polo with gold accent.", sizes: ["S", "M", "L"], stock: 25 },
         { id: 103, name: "Essential White Tee", category: "t-shirts", price: 250, image: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=800&auto=format&fit=crop", description: "High-weight cotton basic.", sizes: ["S", "M", "L", "XL"], stock: 50 },
         { id: 104, name: "Onyx V-Neck", category: "t-shirts", price: 350, image: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=800&auto=format&fit=crop", description: "Deep V-neck for a sharp look.", sizes: ["M", "L"], stock: 12 },
         { id: 105, name: "Charcoal Henley", category: "t-shirts", price: 350, image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=800&auto=format&fit=crop", description: "Textured henley with button details.", sizes: ["S", "M", "L", "XL"], stock: 18 },
