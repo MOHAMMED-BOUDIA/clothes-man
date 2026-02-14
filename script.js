@@ -64,8 +64,8 @@ const formatPrice = (price) => {
 const generateProducts = () => {
     return [
         // --- T-SHIRTS (8) ---
-        { id: 101, name: "Midnight Silk Tee", category: "t-shirts", price: 599, image: "./assets/images/1midnight silk tee.jpg", description: "Premium silk blend tee.", sizes: ["S", "M", "L", "XL"], stock: 15 },
-        { id: 102, name: "Signature Polo", category: "t-shirts", price: 499, image: "./assets/images/2signature polo.jpg", description: "Classic piqué polo with gold accent.", sizes: ["S", "M", "L"], stock: 25 },
+        { id: 101, name: "Midnight Silk Tee", category: "t-shirts", price: 599, image: "./assets/images/1m.jpg", description: "Premium silk blend tee.", sizes: ["S", "M", "L", "XL"], stock: 15 },
+        { id: 102, name: "Signature Polo", category: "t-shirts", price: 499, image: "./assets/images/2si.jpg", description: "Classic piqué polo with gold accent.", sizes: ["S", "M", "L"], stock: 25 },
         { id: 103, name: "Essential White Tee", category: "t-shirts", price: 250, image: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=800&auto=format&fit=crop", description: "High-weight cotton basic.", sizes: ["S", "M", "L", "XL"], stock: 50 },
         { id: 104, name: "Onyx V-Neck", category: "t-shirts", price: 350, image: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=800&auto=format&fit=crop", description: "Deep V-neck for a sharp look.", sizes: ["M", "L"], stock: 12 },
         { id: 105, name: "Charcoal Henley", category: "t-shirts", price: 350, image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=800&auto=format&fit=crop", description: "Textured henley with button details.", sizes: ["S", "M", "L", "XL"], stock: 18 },
@@ -99,8 +99,8 @@ const generateProducts = () => {
         { id: 403, name: "Suede Trucker", category: "jackets", price: 3800, image: "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?q=80&w=800&auto=format&fit=crop", description: "Genuine suede leather.", sizes: ["M", "L", "XL"], stock: 5 },
         { id: 404, name: "Tech Trench Coat", category: "jackets", price: 4200, image: "https://images.unsplash.com/photo-1544923246-77307dd654cb?q=80&w=800&auto=format&fit=crop", description: "Waterproof city coat.", sizes: ["M", "L"], stock: 10 },
         { id: 405, name: "Double Breasted Peacoat", category: "jackets", price: 4800, image: "https://images.unsplash.com/photo-1544022613-e87ca75a784a?q=80&w=800&auto=format&fit=crop", description: "Winter essential.", sizes: ["M", "L", "XL"], stock: 6 },
-        { id: 406, name: "Denim Sherpa", category: "jackets", price: 2100, image: "./assets/images/denim .jpg", description: "Lined for warmth.", sizes: ["S", "M", "L"], stock: 15 },
-        { id: 407, name: "Puffer Down Gilet", category: "jackets", price: 1950, image: "./assets/images/puffer .jpg", description: "Lightweight layering.", sizes: ["M", "L", "XL"], stock: 20 },
+        { id: 406, name: "Denim Sherpa", category: "jackets", price: 2100, image: "./assets/images/denim.jpg", description: "Lined for warmth.", sizes: ["S", "M", "L"], stock: 15 },
+        { id: 407, name: "Puffer Down Gilet", category: "jackets", price: 1950, image: "./assets/images/Puffe.jpg", description: "Lightweight layering.", sizes: ["M", "L", "XL"], stock: 20 },
         { id: 408, name: "Varsity Letterman", category: "jackets", price: 2600, image: "https://images.unsplash.com/photo-1559551409-dadc959f76b8?q=80&w=800&auto=format&fit=crop", description: "Retro collegiate style.", sizes: ["M", "L"], stock: 9 },
 
         // --- SHOES (8) ---
