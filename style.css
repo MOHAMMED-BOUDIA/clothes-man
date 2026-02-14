@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #C6A85B;
+}
+
+/* Hide scrollbar for horizontal scrolling areas but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Base Styles */
+body {
+    background-color: #050505;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Glassmorphism Utilities */
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes kenburns {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes progress {
+    0% {
+        width: 0%;
+        left: 0;
+    }
+
+    50% {
+        width: 100%;
+        left: 0;
+    }
+
+    100% {
+        width: 0%;
+        left: 100%;
+    }
+}
+
+/* Utility Classes */
+.text-gold {
+    color: #C6A85B;
+}
+
+.bg-gold {
+    background-color: #C6A85B;
+}
+
+.border-gold {
+    border-color: #C6A85B;
+}
+
+.selection\:bg-gold::selection {
+    background-color: #C6A85B;
+    color: #000;
+}
+
+/* Loading Screen Transition */
+.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Product Card Hover Effects */
+.product-card:hover .product-image {
+    transform: scale(1.05);
+}
+
+.product-card:hover .quick-view-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Drawer Transitions */
+.drawer-open {
+    transform: translateX(0) !important;
+}
+
+.modal-open {
+    display: flex !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+.overlay-active {
+    display: block !important;
+    opacity: 1 !important;
+}
+
+/* Mobile Menu Transition */
+.menu-open {
+    transform: scaleY(1) !important;
+    opacity: 1 !important;
+}
+
+/* Search Bar Transition */
+.search-open {
+    transform: scaleY(1) !important;
+    opacity: 1 !important;
+}
+
+/* Checkout Form Styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #0a0a0a inset !important;
+    -webkit-text-fill-color: white !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Toast Notification Logic */
+.toast-active {
+    transform: translate(-50%, 0) !important;
+    /* Center horizontally, reset vertical translate */
+    opacity: 1 !important;
+}

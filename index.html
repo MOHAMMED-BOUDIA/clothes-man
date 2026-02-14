@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXE | Redefining Modern Masculinity</title>
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#C6A85B',
+                        dark: '#0a0a0a',
+                        darker: '#050505',
+                        card: '#111111'
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-dark text-white font-sans overflow-x-hidden antialiased selection:bg-gold selection:text-black">
+
+    <!-- Loading Overlay -->
+    <div id="loading-screen"
+        class="fixed inset-0 z-[60] bg-black flex items-center justify-center transition-opacity duration-1000">
+        <div class="text-center">
+            <h1 class="text-4xl font-serif text-gold animate-pulse tracking-widest">LUXE</h1>
+            <div class="mt-4 w-24 h-0.5 bg-gray-800 mx-auto overflow-hidden">
+                <div class="h-full bg-gold w-full animate-[progress_1.5s_ease-in-out_infinite]"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Elements -->
+    <div class="fixed inset-0 bg-transparent pointer-events-none z-[-1] opacity-20">
+        <div class="absolute top-0 left-0 w-96 h-96 bg-gold/10 rounded-full blur-[128px]"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-[128px]"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav id="navbar"
+        class="fixed w-full z-50 transition-all duration-300 py-6 top-0 border-b border-transparent bg-dark/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center relative">
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn"
+                class="md:hidden text-white hover:text-gold transition-colors focus:outline-none z-50 relative">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+
+            <!-- Logo -->
+            <a href="#" onclick="showHome()"
+                class="font-serif text-2xl tracking-[0.2em] text-white hover:text-gold transition-colors absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 cursor-pointer">
+                LUXE
+            </a>
+
+            <!-- Desktop Links -->
+            <div
+                class="hidden md:flex items-center space-x-10 text-sm tracking-widest uppercase font-light text-gray-400">
+                <button data-cat="all"
+                    class="category-btn hover:text-white transition-colors text-gold font-medium">Shop All</button>
+                <button data-cat="t-shirts" class="category-btn hover:text-white transition-colors">T-Shirts</button>
+                <button data-cat="jackets" class="category-btn hover:text-white transition-colors">Jackets</button>
+                <button data-cat="shoes" class="category-btn hover:text-white transition-colors">Shoes</button>
+                <button data-cat="watches" class="category-btn hover:text-white transition-colors">Watches</button>
+            </div>
+
+            <!-- Icons -->
+            <div class="flex items-center space-x-6 z-50 relative">
+                <!-- Search Trigger -->
+                <button id="search-btn" class="text-gray-400 hover:text-gold transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </button>
+
+                <!-- Wishlist Trigger -->
+                <button id="wishlist-btn" class="text-gray-400 hover:text-gold transition-colors relative">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                        </path>
+                    </svg>
+                    <span id="wishlist-count"
+                        class="absolute -top-2 -right-2 bg-gold text-black text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
+                </button>
+
+                <!-- Cart Trigger -->
+                <button id="cart-btn" class="text-gray-400 hover:text-gold transition-colors relative group">
+                    <svg class="w-5 h-5 group-hover:animate-bounce" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                    </svg>
+                    <span id="cart-count"
+                        class="absolute -top-2 -right-2 bg-gold text-black text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Search Bar Overlay (Hidden by default) -->
+        <div id="search-bar"
+            class="absolute top-full left-0 w-full bg-dark border-b border-gray-800 transition-all duration-300 origin-top transform scale-y-0 opacity-0 overflow-hidden">
+            <div class="max-w-4xl mx-auto py-6 px-6 relative">
+                <input type="text" id="search-input" placeholder="Search products..."
+                    class="w-full bg-transparent border-b border-gray-700 text-2xl py-2 px-4 focus:outline-none focus:border-gold text-white font-serif placeholder-gray-600">
+                <div id="search-results"
+                    class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 max-h-60 overflow-y-auto hidden">
+                    <!-- Search Results Injected JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu"
+            class="md:hidden absolute top-full left-0 w-full bg-black border-b border-gray-800 transition-all duration-300 transform origin-top scale-y-0 opacity-0 flex flex-col p-6 space-y-4 shadow-2xl">
+            <button data-cat="all"
+                class="category-btn text-left text-gray-400 hover:text-gold uppercase tracking-widest text-sm py-2 border-b border-gray-900">All
+                Collection</button>
+            <button data-cat="t-shirts"
+                class="category-btn text-left text-gray-400 hover:text-gold uppercase tracking-widest text-sm py-2 border-b border-gray-900">T-Shirts</button>
+            <button data-cat="shirts"
+                class="category-btn text-left text-gray-400 hover:text-gold uppercase tracking-widest text-sm py-2 border-b border-gray-900">Shirts</button>
+            <button data-cat="pants"
+                class="category-btn text-left text-gray-400 hover:text-gold uppercase tracking-widest text-sm py-2 border-b border-gray-900">Pants</button>
+            <button data-cat="jackets"
+                class="category-btn text-left text-gray-400 hover:text-gold uppercase tracking-widest text-sm py-2 border-b border-gray-900">Jackets</button>
+            <button data-cat="shoes"
+                class="category-btn text-left text-gray-400 hover:text-gold uppercase tracking-widest text-sm py-2 border-b border-gray-900">Shoes</button>
+            <button data-cat="watches"
+                class="category-btn text-left text-gray-400 hover:text-gold uppercase tracking-widest text-sm py-2 border-b border-gray-900">Watches</button>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main id="app-container" class="pt-20">
+
+        <!-- Hero Section -->
+        <section id="hero" class="relative h-screen w-full overflow-hidden flex items-center justify-center">
+            <!-- Using a distinct high-quality placeholder for initial render before using the generated one if JS fails -->
+            <div class="absolute inset-0 z-0">
+                <img src="assets/images/luxe_hero_bg.webp"
+                    onerror="this.src='https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=2000&auto=format&fit=crop'"
+                    alt="Luxury Fashion"
+                    class="w-full h-full object-cover opacity-60 scale-105 animate-[kenburns_20s_infinite_alternate]">
+                <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-dark/30 via-transparent to-dark"></div>
+            </div>
+
+            <div class="relative z-10 text-center px-6 max-w-4xl mx-auto" data-aos="fade-up">
+                <h2
+                    class="text-gold uppercase tracking-[0.3em] text-sm mb-4 font-bold animate-[fadeInDown_1s_ease-out]">
+                    New Collection 2026</h2>
+                <h1
+                    class="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-8 leading-tight animate-[fadeInUp_1s_ease-out_0.2s]">
+                    Redefining Modern <br> <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500 italic">Masculinity</span>
+                </h1>
+                <div
+                    class="flex flex-col md:flex-row gap-6 justify-center items-center animate-[fadeInUp_1s_ease-out_0.4s]">
+                    <button onclick="document.getElementById('products-section').scrollIntoView({ behavior: 'smooth' })"
+                        class="bg-gold text-black px-10 py-4 uppercase tracking-widest text-sm font-bold hover:bg-white transition-all duration-300 transform hover:scale-105 shadow-[0_0_20px_rgba(198,168,91,0.3)]">
+                        Shop Collection
+                    </button>
+                    <button onclick="document.getElementById('products-section').scrollIntoView({ behavior: 'smooth' })"
+                        class="border border-white/30 text-white px-10 py-4 uppercase tracking-widest text-sm font-bold hover:bg-white/10 hover:border-white transition-all duration-300 backdrop-blur-sm">
+                        View Lookbook
+                    </button>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <svg class="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Product Grid -->
+        <section id="products-section" class="py-20 px-6 max-w-7xl mx-auto min-h-screen mt-16">
+            <!-- Product Count -->
+            <p id="product-count" class="text-gray-400 mb-6 font-serif tracking-in-expand"></p>
+
+            <!-- Grid Container -->
+            <div id="product-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Products injected here -->
+            </div>
+
+            <!-- Pagination / Load More -->
+            <div class="mt-20 text-center">
+                <button id="load-more"
+                    class="text-gray-400 hover:text-gold uppercase tracking-[0.2em] text-xs border-b border-transparent hover:border-gold pb-1 transition-all hidden">Load
+                    More Products</button>
+            </div>
+        </section>
+
+        <!-- Checkout View (Initially Hidden) -->
+        <section id="checkout-view"
+            class="hidden py-20 px-6 max-w-4xl mx-auto min-h-screen animate-[fadeIn_0.5s_ease-out]">
+            <div class="mb-10 text-center">
+                <h2 class="text-3xl font-serif text-white mb-2">Secure Checkout</h2>
+                <div class="w-16 h-0.5 bg-gold mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                <!-- Form -->
+                <div class="lg:col-span-2 space-y-8">
+                    <!-- Contact Info -->
+                    <div class="bg-card p-6 border border-gray-800">
+                        <h3 class="text-gold uppercase tracking-widest text-sm mb-6 flex items-center gap-2">
+                            <span
+                                class="w-6 h-6 rounded-full border border-gold flex items-center justify-center text-xs">1</span>
+                            Contact Information
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="col-span-2">
+                                <label class="block text-xs uppercase text-gray-500 mb-2">Email Address</label>
+                                <input type="email" id="checkout-email"
+                                    class="w-full bg-dark border border-gray-700 p-3 text-white focus:border-gold focus:outline-none transition-colors"
+                                    placeholder="john@example.com">
+                            </div>
+                            <div class="col-span-2">
+                                <label class="block text-xs uppercase text-gray-500 mb-2">Full Name</label>
+                                <input type="text" id="checkout-name"
+                                    class="w-full bg-dark border border-gray-700 p-3 text-white focus:border-gold focus:outline-none transition-colors"
+                                    placeholder="John Doe">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shipping Address -->
+                    <div class="bg-card p-6 border border-gray-800">
+                        <h3 class="text-gold uppercase tracking-widest text-sm mb-6 flex items-center gap-2">
+                            <span
+                                class="w-6 h-6 rounded-full border border-gold flex items-center justify-center text-xs">2</span>
+                            Shipping Address
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="col-span-2">
+                                <label class="block text-xs uppercase text-gray-500 mb-2">Address</label>
+                                <input type="text" id="checkout-address"
+                                    class="w-full bg-dark border border-gray-700 p-3 text-white focus:border-gold focus:outline-none transition-colors"
+                                    placeholder="123 Luxury Lane">
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase text-gray-500 mb-2">City</label>
+                                <input type="text" id="checkout-city"
+                                    class="w-full bg-dark border border-gray-700 p-3 text-white focus:border-gold focus:outline-none transition-colors"
+                                    placeholder="New York">
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase text-gray-500 mb-2">Zip Code</label>
+                                <input type="text" id="checkout-zip"
+                                    class="w-full bg-dark border border-gray-700 p-3 text-white focus:border-gold focus:outline-none transition-colors"
+                                    placeholder="10001">
+                            </div>
+                            <div class="col-span-2">
+                                <label class="block text-xs uppercase text-gray-500 mb-2">Phone</label>
+                                <input type="tel" id="checkout-phone"
+                                    class="w-full bg-dark border border-gray-700 p-3 text-white focus:border-gold focus:outline-none transition-colors"
+                                    placeholder="+1 (555) 000-0000">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment -->
+                    <div class="bg-card p-6 border border-gray-800">
+                        <h3 class="text-gold uppercase tracking-widest text-sm mb-6 flex items-center gap-2">
+                            <span
+                                class="w-6 h-6 rounded-full border border-gold flex items-center justify-center text-xs">3</span>
+                            Payment Method
+                        </h3>
+                        <div class="space-y-4">
+                            <label
+                                class="flex items-center gap-4 bg-dark p-4 border border-gray-700 cursor-pointer hover:border-gold transition-colors">
+                                <input type="radio" name="payment" value="card" checked
+                                    class="text-gold focus:ring-gold accent-gold">
+                                <span class="text-white uppercase text-sm tracking-wider">Credit Card</span>
+                            </label>
+                            <label
+                                class="flex items-center gap-4 bg-dark p-4 border border-gray-700 cursor-pointer hover:border-gold transition-colors">
+                                <input type="radio" name="payment" value="paypal"
+                                    class="text-gold focus:ring-gold accent-gold">
+                                <span class="text-white uppercase text-sm tracking-wider">PayPal</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button onclick="processCheckout()"
+                        class="w-full bg-gold text-black py-4 uppercase tracking-[0.2em] font-bold hover:bg-white transition-colors duration-300">
+                        Confirm & Pay
+                    </button>
+                    <button onclick="showHome()"
+                        class="w-full text-gray-500 hover:text-white text-sm uppercase tracking-widest py-2 transition-colors">
+                        Return to Shop
+                    </button>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="bg-card p-6 border border-gray-800 h-fit sticky top-24">
+                    <h3 class="text-white text-lg font-serif mb-6 border-b border-gray-800 pb-4">Order Summary</h3>
+                    <div id="checkout-items" class="space-y-4 max-h-60 overflow-y-auto mb-6 pr-2">
+                        <!-- Checkout Items injected here -->
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-400 border-t border-gray-800 pt-4">
+                        <div class="flex justify-between">
+                            <span>Subtotal</span>
+                            <span id="checkout-subtotal" class="text-white">$0.00</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Shipping</span>
+                            <span class="text-gold">Free</span>
+                        </div>
+                        <div
+                            class="flex justify-between text-white text-lg font-bold pt-4 border-t border-gray-800 mt-4">
+                            <span>Total</span>
+                            <span id="checkout-total">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-card border-t border-gray-900 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <!-- Brand -->
+            <div class="space-y-6">
+                <h3 class="font-serif text-2xl text-white">LUXE</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Redefining modern masculinity through minimal design
+                    and premium quality. Crafted for the ambitious.</p>
+                <div class="flex space-x-4">
+                    <!-- Social Icons (minimal svg) -->
+                    <a href="#" class="text-gray-600 hover:text-gold transition-colors"><span
+                            class="sr-only">Instagram</span><svg class="w-5 h-5" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg></a>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div>
+                <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Navigation</h4>
+                <ul class="space-y-3 text-sm text-gray-500">
+                    <li><a href="#" onclick="showHome()" class="hover:text-gold transition-colors">Home</a></li>
+                    <li><a href="#" onclick="filterProducts('all')" class="hover:text-gold transition-colors">Shop
+                            All</a></li>
+                    <li><a href="#" onclick="showHome()" class="hover:text-gold transition-colors">About Us</a></li>
+                    <li><a href="#" onclick="showHome()" class="hover:text-gold transition-colors">Journal</a></li>
+                </ul>
+            </div>
+
+            <!-- Help -->
+            <div>
+                <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Customer Care</h4>
+                <ul class="space-y-3 text-sm text-gray-500">
+                    <li><a href="#" class="hover:text-gold transition-colors">Shipping & Returns</a></li>
+                    <li><a href="#" class="hover:text-gold transition-colors">Size Guide</a></li>
+                    <li><a href="#" class="hover:text-gold transition-colors">FAQ</a></li>
+                    <li><a href="#" class="hover:text-gold transition-colors">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div>
+                <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Newsletter</h4>
+                <p class="text-gray-500 text-sm mb-4">Subscribe to receive updates, access to exclusive deals, and more.
+                </p>
+                <div class="flex border-b border-gray-700 pb-2 focus-within:border-gold transition-colors">
+                    <input type="email" placeholder="Enter your email"
+                        class="bg-transparent border-none text-white w-full focus:outline-none placeholder-gray-600">
+                    <button
+                        class="text-gray-400 hover:text-gold uppercase text-xs font-bold transition-colors">Join</button>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-900 mt-20 pt-8 text-center">
+            <p class="text-gray-700 text-xs uppercase tracking-widest">&copy; 2026 LUXE. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+    <!-- Cart Drawer (Right Side) -->
+    <div id="cart-drawer"
+        class="fixed inset-y-0 right-0 z-[60] w-full md:w-96 bg-card shadow-2xl transform translate-x-full transition-transform duration-300 border-l border-gray-900 flex flex-col">
+        <div class="p-6 border-b border-gray-800 flex justify-between items-center bg-dark">
+            <h2 class="text-xl font-serif text-white">Your Cart (<span id="cart-drawer-count">0</span>)</h2>
+            <button id="close-cart" class="text-gray-500 hover:text-white transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-6">
+            <!-- Cart Items injected here -->
+        </div>
+        <div class="p-6 border-t border-gray-800 bg-dark space-y-4">
+            <div class="flex justify-between items-center text-white text-lg">
+                <span>Subtotal</span>
+                <span id="cart-subtotal" class="font-bold text-gold">$0.00</span>
+            </div>
+            <p class="text-xs text-center text-gray-500">Shipping & taxes calculated at checkout.</p>
+            <button onclick="goToCheckout()"
+                class="w-full bg-gold text-black py-4 uppercase tracking-[0.2em] font-bold hover:bg-white transition-colors duration-300">
+                Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Wishlist Drawer (Left Side or Overlay) -->
+    <div id="wishlist-drawer"
+        class="fixed inset-y-0 right-0 z-[60] w-full md:w-96 bg-card shadow-2xl transform translate-x-full transition-transform duration-300 border-l border-gray-900 flex flex-col">
+        <div class="p-6 border-b border-gray-800 flex justify-between items-center bg-dark">
+            <h2 class="text-xl font-serif text-white">Wishlist</h2>
+            <button id="close-wishlist" class="text-gray-500 hover:text-white transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <div id="wishlist-items" class="flex-1 overflow-y-auto p-6 space-y-6">
+            <!-- Wishlist Items injected here -->
+        </div>
+    </div>
+
+    <!-- Product Details Modal -->
+    <div id="product-modal"
+        class="fixed inset-0 z-[70] bg-black/90 backdrop-blur-sm hidden flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 pointer-events-none">
+        <div
+            class="bg-card w-full max-w-5xl max-h-[90vh] overflow-y-auto md:overflow-hidden grid grid-cols-1 md:grid-cols-2 relative shadow-2xl border border-gray-800 animate-[fadeIn_0.3s_ease-out]">
+            <button id="close-modal"
+                class="absolute top-4 right-4 z-10 bg-black/50 p-2 rounded-full text-white hover:bg-gold hover:text-black transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+            <div class="h-64 md:h-full bg-gray-900 relative group overflow-hidden">
+                <img id="modal-image" src=""
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    alt="Product">
+            </div>
+            <div class="p-8 md:p-12 flex flex-col justify-center space-y-6 bg-card">
+                <span id="modal-category" class="text-gold uppercase tracking-[0.2em] text-xs font-bold">Category</span>
+                <h2 id="modal-title" class="text-3xl md:text-5xl font-serif text-white leading-tight">Product Name</h2>
+                <p id="modal-price" class="text-2xl text-white font-light">$0.00</p>
+                <div class="flex items-center space-x-1 text-gold text-sm">
+                    <span>★★★★★</span>
+                    <span id="modal-reviews" class="text-gray-500 ml-2">(0 reviews)</span>
+                </div>
+                <p id="modal-description" class="text-gray-400 text-sm leading-relaxed">Description goes here.</p>
+
+                <!-- Options -->
+                <div class="space-y-4 pt-4 border-t border-gray-800">
+                    <div>
+                        <span class="text-gray-500 text-xs uppercase tracking-widest block mb-2">Size</span>
+                        <div id="modal-sizes" class="flex gap-2">
+                            <!-- Sizes -->
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-gray-500 text-xs uppercase tracking-widest block mb-2">Quantity</span>
+                        <div class="flex border border-gray-700 w-24">
+                            <button onclick="decrementModalQty()"
+                                class="w-8 text-gray-400 hover:text-white hover:bg-gray-800">-</button>
+                            <span id="modal-qty"
+                                class="flex-1 text-center text-white py-1 text-sm bg-transparent">1</span>
+                            <button onclick="incrementModalQty()"
+                                class="w-8 text-gray-400 hover:text-white hover:bg-gray-800">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6">
+                    <button id="modal-add-to-cart"
+                        class="w-full bg-gold text-black py-4 uppercase tracking-[0.2em] font-bold hover:bg-white transition-all duration-300 transform hover:-translate-y-1 shadow-[0_4px_14px_0_rgba(198,168,91,0.3)]">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast"
+        class="fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-white text-black px-6 py-3 shadow-2xl z-[80] translate-y-20 opacity-0 transition-all duration-500 rounded-sm flex items-center gap-3 min-w-[300px]">
+        <div class="w-2 h-2 bg-gold rounded-full animate-pulse"></div>
+        <span id="toast-message" class="text-sm font-semibold tracking-wide uppercase">Added to cart</span>
+    </div>
+
+    <!-- Overlay (for drawers) -->
+    <div id="overlay"
+        class="fixed inset-0 bg-black/80 z-[55] hidden opacity-0 transition-opacity duration-300 backdrop-blur-sm">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
