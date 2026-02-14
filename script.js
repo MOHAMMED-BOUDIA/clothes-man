@@ -99,7 +99,7 @@ const generateProducts = () => {
         { id: 403, name: "Suede Trucker", category: "jackets", price: 3800, image: "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?q=80&w=800&auto=format&fit=crop", description: "Genuine suede leather.", sizes: ["M", "L", "XL"], stock: 5 },
         { id: 404, name: "Tech Trench Coat", category: "jackets", price: 4200, image: "https://images.unsplash.com/photo-1544923246-77307dd654cb?q=80&w=800&auto=format&fit=crop", description: "Waterproof city coat.", sizes: ["M", "L"], stock: 10 },
         { id: 405, name: "Double Breasted Peacoat", category: "jackets", price: 4800, image: "https://images.unsplash.com/photo-1544022613-e87ca75a784a?q=80&w=800&auto=format&fit=crop", description: "Winter essential.", sizes: ["M", "L", "XL"], stock: 6 },
-        { id: 406, name: "Denim Sherpa", category: "jackets", price: 2100, image: "./assets/images/denim.jpg", description: "Lined for warmth.", sizes: ["S", "M", "L"], stock: 15 },
+        { id: 406, name: "Denim Sherpa", category: "jackets", price: 2100, image: "./assets/images/Denim.jpg", description: "Lined for warmth.", sizes: ["S", "M", "L"], stock: 15 },
         { id: 407, name: "Puffer Down Gilet", category: "jackets", price: 1950, image: "./assets/images/Puffe.jpg", description: "Lightweight layering.", sizes: ["M", "L", "XL"], stock: 20 },
         { id: 408, name: "Varsity Letterman", category: "jackets", price: 2600, image: "https://images.unsplash.com/photo-1559551409-dadc959f76b8?q=80&w=800&auto=format&fit=crop", description: "Retro collegiate style.", sizes: ["M", "L"], stock: 9 },
 
