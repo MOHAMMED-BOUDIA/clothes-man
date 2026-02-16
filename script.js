@@ -73,26 +73,7 @@ const generateProducts = () => {
         { id: 107, name: "Vintage Wash Tee", category: "t-shirts", price: 79, image: "./assets/images/7.jpg", description: "Distressed look for casual wear.", sizes: ["S", "M", "L"], stock: 20 },
         { id: 108, name: "Striped Mariner", category: "t-shirts", price: 850, image: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=800&auto=format&fit=crop", description: "Classic nautical stripes.", sizes: ["M", "L"], stock: 15 },
 
-        // --- SHIRTS (8) ---
-        { id: 201, name: "Oxford Elite Shirt", category: "shirts", price: 1850, image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=800&auto=format&fit=crop", description: "Structured tailoring.", sizes: ["S", "M", "L", "XL"], stock: 20 },
-        { id: 202, name: "Heritage Linen Shirt", category: "shirts", price: 1600, image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=800&auto=format&fit=crop", description: "Breathable linen for summer.", sizes: ["S", "M", "L", "XL"], stock: 18 },
-        { id: 203, name: "Royal Blue Dress Shirt", category: "shirts", price: 1450, image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=800&auto=format&fit=crop", description: "Perfect for formal events.", sizes: ["38", "40", "42"], stock: 10 },
-        { id: 204, name: "Grandad Collar Shirt", category: "shirts", price: 1350, image: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=800&auto=format&fit=crop", description: "Modern collarless design.", sizes: ["M", "L", "XL"], stock: 15 },
-        { id: 205, name: "Satin Evening Shirt", category: "shirts", price: 2200, image: "https://images.unsplash.com/photo-1620012253295-c15cc3fe5d3d?q=80&w=800&auto=format&fit=crop", description: "Luxurious satin finish.", sizes: ["S", "M", "L"], stock: 8 },
-        { id: 206, name: "Checked Flannel", category: "shirts", price: 1250, image: "https://images.unsplash.com/photo-1618354691229-88d47f285158?q=80&w=800&auto=format&fit=crop", description: "Premium warm flannel.", sizes: ["M", "L", "XL"], stock: 25 },
-        { id: 207, name: "Slim Fit Poplin", category: "shirts", price: 1500, image: "https://images.unsplash.com/photo-1603252109303-2751440a9a79?q=80&w=800&auto=format&fit=crop", description: "Crisp white poplin.", sizes: ["38", "40", "42", "44"], stock: 30 },
-        { id: 208, name: "Denim Western Shirt", category: "shirts", price: 1750, image: "https://images.unsplash.com/photo-1584030318776-08b796a630ec?q=80&w=800&auto=format&fit=crop", description: "Rugged yet refined.", sizes: ["M", "L", "XL"], stock: 12 },
-
-        // --- PANTS (8) ---
-        { id: 301, name: "Noir Tapered Chinos", category: "pants", price: 1250, image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=800&auto=format&fit=crop", description: "Versatile office to evening wear.", sizes: ["30", "32", "34", "36"], stock: 12 },
-        { id: 302, name: "Italian Wool Trousers", category: "pants", price: 2450, image: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=800&auto=format&fit=crop", description: "Premium wool fabric.", sizes: ["32", "34", "36"], stock: 8 },
-        { id: 303, name: "Tech Commuter Pants", category: "pants", price: 1100, image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=800&auto=format&fit=crop", description: "Stretch fabric for movement.", sizes: ["30", "32", "34"], stock: 20 },
-        { id: 304, name: "Selvedge Denim Jeans", category: "pants", price: 1899, image: "https://images.unsplash.com/photo-1542272454315-4c01d7abdf4a?q=80&w=800&auto=format&fit=crop", description: "Japanese denim construction.", sizes: ["30", "32", "34", "36"], stock: 15 },
-        { id: 305, name: "Linen Drawstring Trousers", category: "pants", price: 1350, image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?q=80&w=800&auto=format&fit=crop", description: "Relaxed fit for summer.", sizes: ["M", "L"], stock: 18 },
-        { id: 306, name: "Cargo Joggers", category: "pants", price: 999, image: "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?q=80&w=800&auto=format&fit=crop", description: "Utility meets luxury.", sizes: ["S", "M", "L"], stock: 25 },
-        { id: 307, name: "Pleated Dress Pants", category: "pants", price: 1650, image: "https://images.unsplash.com/photo-1506629082955-511b1aa00272?q=80&w=800&auto=format&fit=crop", description: "Classic pleated front.", sizes: ["32", "34", "36"], stock: 10 },
-        { id: 308, name: "Corduroy Slacks", category: "pants", price: 1400, image: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=800&auto=format&fit=crop", description: "Vintage inspired texture.", sizes: ["30", "32", "34"], stock: 14 },
-
+    
         // --- JACKETS (8) ---
         { id: 401, name: "Obsidian Bomber", category: "jackets", price: 4500, image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=800&auto=format&fit=crop", description: "Gold hardware details.", sizes: ["M", "L", "XL"], stock: 8 },
         { id: 402, name: "Executive Blazer", category: "jackets", price: 5900, image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop", description: "Tailored fit.", sizes: ["38", "40", "42"], stock: 7 },
